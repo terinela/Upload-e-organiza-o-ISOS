@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: iso-container
+    ports:
+      - "8080:80"
+    volumes:
+      - ./isos:/usr/share/nginx/html/isos
+      - ./index.html:/usr/share/nginx/html/index.html
+    restart: unless-stopped
